@@ -1,9 +1,9 @@
-NO img/no.xpm
-SO img/so.xpm
-WE img/we.xpm
-EA img/ea.xpm
-C 173,216,230
-F 0,154,23
+NO img/doom_7.xpm
+SO img/doom_3.xpm
+WE img/doom_5.xpm
+EA img/doom_4.xpm
+C 136, 8, 8
+F 128,126,120
 
 1111111111111111111111111
 1000000000110000000000001
