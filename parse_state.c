@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_state.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kezekiel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/14 16:49:36 by kezekiel          #+#    #+#             */
+/*   Updated: 2022/10/14 16:49:37 by kezekiel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "config.h"
 
 void	set_pos(t_state *state, double x, double y)
@@ -60,8 +72,8 @@ void	set_plane(t_state *state)
 void	parse_state(t_state *state, t_map *info)
 {
 	char	*line;
-	int	row;
-	int	col;
+	int		row;
+	int		col;
 
 	row = 0;
 	while (row < info->h)

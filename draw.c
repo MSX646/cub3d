@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kezekiel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/14 16:48:45 by kezekiel          #+#    #+#             */
+/*   Updated: 2022/10/14 16:48:47 by kezekiel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "config.h"
 
 void	pixel_put(t_img *img, int x, int y, int color)
@@ -13,8 +25,8 @@ void	pixel_put(t_img *img, int x, int y, int color)
 void	draw_bg(t_graphics *graphic)
 {
 	t_img	*img;
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 
 	img = &graphic->img_info;
 	y = -1;
@@ -31,7 +43,7 @@ void	draw_bg(t_graphics *graphic)
 
 void	draw_game(t_game *game)
 {
-	int	x;
+	int		x;
 	t_ray	ray;
 	double	camera;
 
@@ -44,5 +56,5 @@ void	draw_game(t_game *game)
 		draw_wall(game, &ray, x);
 		x++;
 	}
-	mlx_put_image_to_window(game->mlx, game->win, game->graph_info.img, 0 , 0);
+	mlx_put_image_to_window(game->mlx, game->win, game->graph_info.img, 0, 0);
 }

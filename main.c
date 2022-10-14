@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kezekiel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/14 16:49:19 by kezekiel          #+#    #+#             */
+/*   Updated: 2022/10/14 16:49:20 by kezekiel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "config.h"
 
 int	valid_ext(char *av)
@@ -19,14 +31,13 @@ int	valid_ext(char *av)
 	return (1);
 }
 
-void check_cmd(int ac, char **av)
+void	check_cmd(int ac, char **av)
 {
 	if (ac != 2)
 	{
 		write(2, "Error\nUsage: ./cub3d <Map>\n", 27);
 		exit(1);
 	}
-	
 	if (!(valid_ext(av[1])))
 	{
 		write(2, "Error\nInvalid map file\n", 24);
@@ -34,9 +45,9 @@ void check_cmd(int ac, char **av)
 	}
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_game game;
+	t_game	game;
 
 	check_cmd(ac, av);
 	init(&game);

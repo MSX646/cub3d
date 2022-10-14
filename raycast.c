@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raycast.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kezekiel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/14 16:49:40 by kezekiel          #+#    #+#             */
+/*   Updated: 2022/10/14 16:49:41 by kezekiel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "config.h"
 
 void	update_ray(t_ray *ray, int axis)
@@ -19,15 +31,17 @@ void	update_ray(t_ray *ray, int axis)
 void	set_wall(t_ray *ray, t_point *pos)
 {
 	if (ray->side == X)
-		ray->wall_dist = (ray->map_x - pos->x + (1 - ray->step_x) / 2.0) / ray->ray_dir.x;
+		ray->wall_dist = \
+			(ray->map_x - pos->x + (1 - ray->step_x) / 2.0) / ray->ray_dir.x;
 	else
-		ray->wall_dist = (ray->map_y - pos->y + (1 - ray->step_y) / 2.0) / ray->ray_dir.y;
+		ray->wall_dist = \
+			(ray->map_y - pos->y + (1 - ray->step_y) / 2.0) / ray->ray_dir.y;
 }
 
 t_ray	raycast(t_state *state, char **map, double camera)
 {
 	t_ray	ray;
-	int	hit;
+	int		hit;
 
 	hit = 0;
 	set_ray(state, &ray, camera);

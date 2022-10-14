@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_handler.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kezekiel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/14 16:49:13 by kezekiel          #+#    #+#             */
+/*   Updated: 2022/10/14 16:49:15 by kezekiel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "config.h"
 
 int	wall_collision(t_point next_pos, t_state *state, char **map)
@@ -24,10 +36,11 @@ int	wall_collision(t_point next_pos, t_state *state, char **map)
 
 void	move(int key, t_state *state, char **map)
 {
-	t_state next;
+	t_state	next;
 
 	if (key == KEY_W)
-		set_pos(&next, state->pos.x + STEP * state->dir.x, state->pos.y + STEP * state->dir.y);
+		set_pos(&next, state->pos.x + STEP * state->dir.x, \
+			state->pos.y + STEP * state->dir.y);
 	else if (key == KEY_D)
 		set_pos(&next, state->pos.x + STEP * state->plane.x,
 			state->pos.y + STEP * state->plane.y);

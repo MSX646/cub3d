@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   valid_edges.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kezekiel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/14 16:49:56 by kezekiel          #+#    #+#             */
+/*   Updated: 2022/10/14 16:49:57 by kezekiel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "config.h"
 
 void	check_edge(char *line, int start, int last)
@@ -28,7 +40,7 @@ void	valid_edges(char *line, int height, int row)
 
 	col = 0;
 	start = ft_strchr(line, '1') - line;
-	last = ft_strchr(line, '1') - line;
+	last = ft_strrchr(line, '1') - line;
 	while (col < start)
 	{
 		if (line[col] != ' ')

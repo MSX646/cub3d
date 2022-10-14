@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   valid_inners.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kezekiel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/14 16:50:00 by kezekiel          #+#    #+#             */
+/*   Updated: 2022/10/14 16:50:01 by kezekiel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "config.h"
-#include <stdio.h>
+
 void	check_space(char **map, int row, int col, int arrow)
 {
 	if (arrow == UP)
@@ -11,7 +23,7 @@ void	check_space(char **map, int row, int col, int arrow)
 	else if (arrow == RIGHT)
 		arrow = map[row][col + 1];
 	if (arrow != ' ' && arrow != '1')
-		throw_error("Error\nInvalid inner wall");
+		throw_error("Error\nInvalid inner wall\n");
 }
 
 void	check_side(char **map, int row, int col)

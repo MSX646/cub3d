@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kezekiel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/14 16:49:51 by kezekiel          #+#    #+#             */
+/*   Updated: 2022/10/14 16:49:52 by kezekiel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "config.h"
 
 void	*make_img(void *mlx, char *xpm)
@@ -34,7 +46,7 @@ char	*new_line(int fd)
 {
 	char	*line;
 	char	eol;
-	int	len;
+	int		len;
 
 	line = get_next_line(fd);
 	if (!line)

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   valid_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kezekiel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/14 16:50:12 by kezekiel          #+#    #+#             */
+/*   Updated: 2022/10/14 16:50:13 by kezekiel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "config.h"
 
 void	player_count(char *line, int *cnt)
@@ -19,9 +31,9 @@ void	player_count(char *line, int *cnt)
 
 char	**map_dup(t_map *info)
 {
-	int	row;
-	int	col;
-	int	size;
+	int		row;
+	int		col;
+	int		size;
 	char	**map;
 
 	map = ft_calloc(info->h, sizeof(char *));
@@ -48,8 +60,8 @@ void	valid_map(t_map *info)
 {
 	char	**map;
 	char	*line;
-	int	row;
-	int	cnt;
+	int		row;
+	int		cnt;
 
 	row = 0;
 	cnt = 0;

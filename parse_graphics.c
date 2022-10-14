@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_graphics.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kezekiel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/14 16:49:28 by kezekiel          #+#    #+#             */
+/*   Updated: 2022/10/14 16:49:29 by kezekiel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "config.h"
 
 void	parse_color(int *color, char *line, int *check)
 {
 	t_colors	type;
-	char	*str;
+	char		*str;
 
 	type = 0;
 	if (!ft_strncmp(line, "F", 1))
@@ -25,7 +37,7 @@ void	parse_texture(t_graphics *graphics, char *line, void *mlx, int *check)
 {
 	t_dir	dir;
 	t_img	imginfo;
-	
+
 	if (!ft_strncmp(line, "NO", 2))
 		dir = NO;
 	else if (!ft_strncmp(line, "SO", 2))
@@ -42,18 +54,19 @@ void	parse_texture(t_graphics *graphics, char *line, void *mlx, int *check)
 	if (check[dir] == 1)
 		throw_error("Error\nFound duplicate in graphics\n");
 	graphics->textures[dir] = make_img(mlx, ft_strtrim(line + 2, DEL));
-	imginfo.addr = (unsigned int *)mlx_get_data_addr(graphics->textures[dir], &imginfo.bpp, &imginfo.line, &imginfo.end);
+	imginfo.addr = (unsigned int *)mlx_get_data_addr(graphics->textures[dir], \
+		&imginfo.bpp, &imginfo.line, &imginfo.end);
 	graphics->texture_info[dir] = imginfo;
 	check[dir] = 1;
 	free(line);
 }
 
-void valid_graphics(int *check)
+void	valid_graphics(int *check)
 {
 	int	cnt;
 	int	i;
 
-	i=0;
+	i = 0;
 	while (i < 4)
 	{
 		if (check[i++] != 1)
@@ -67,12 +80,12 @@ void valid_graphics(int *check)
 	}
 }
 
-void graph_info(int fd, t_graphics *graphics, void *mlx)
+void	graph_info(int fd, t_graphics *graphics, void *mlx)
 {
 	char	*line;
-	int	i;
-	int	check[6]; //textures + colors
-	
+	int		i;
+	int		check[6];
+
 	i = -1;
 	while (++i < 6)
 		check[i] = 0;

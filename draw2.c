@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw2.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kezekiel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/14 16:48:51 by kezekiel          #+#    #+#             */
+/*   Updated: 2022/10/14 16:48:52 by kezekiel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "config.h"
 
 unsigned int	get_color(t_img *img, int x, int y)
@@ -7,14 +19,13 @@ unsigned int	get_color(t_img *img, int x, int y)
 
 	color = img->bpp / 8;
 	pixel = (y * img->line) / color + x;
-	
 	return (*(img->addr + pixel));
 }
 
 int	texture_scaled(t_point *pos, t_ray *ray)
 {
 	double	wall;
-	int	texture;
+	int		texture;
 
 	if (ray->side == X)
 		wall = pos->y + ray->wall_dist * ray->ray_dir.y;
@@ -26,7 +37,6 @@ int	texture_scaled(t_point *pos, t_ray *ray)
 		texture = TEXTURE - texture - 1;
 	if (ray->side == Y && ray->ray_dir.y > 0)
 		texture = TEXTURE - texture - 1;
-	
 	return (texture);
 }
 
@@ -44,16 +54,15 @@ t_render	get_render(t_ray *ray, t_state *state)
 		info.end_y = DEF_H;
 	info.tex_x = texture_scaled(&state->pos, ray);
 	info.tex_pos = (info.start_y - DEF_H / 2 + info.line_h / 2) * info.ratio;
-
 	return (info);
 }
 
 void	draw_wall(t_game *game, t_ray *ray, int x)
 {
 	t_render	info;
-	t_img	*tex_info;
-	t_img	*img_info;
-	int	color;
+	t_img		*tex_info;
+	t_img		*img_info;
+	int			color;
 
 	img_info = &game->graph_info.img_info;
 	info = get_render(ray, &game->state);
