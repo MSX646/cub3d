@@ -32,16 +32,20 @@ void init_graphics(t_graphics *graph, void *mlx)
 
 	init_img(graph, mlx);
 	i = -1;
-	while(++i < 4) //textures
+	while(++i < 4)
 		graph->textures[i] = NULL;
 	i = -1;
-	while (++i < 2) // colors
+	while (++i < 2)
 		graph->colors[i] = -1;
 }
 
 void init(t_game *game)
 {
 	game->mlx = mlx_init();
+	if (!game->mlx)
+	{
+		throw_error("mlx init");
+	}
 	init_map(&game->mapinfo);
 	init_graphics(&game->graph_info, game->mlx);
 	init_state(&game->state);

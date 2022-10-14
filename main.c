@@ -9,7 +9,7 @@ int	valid_ext(char *av)
 	v_len = 3;
 	valid = ".cub";
 	len = ft_strlen(av) - 1;
-	while (valid[v_len])
+	while (v_len >= 0)
 	{
 		if (valid[v_len] != av[len])
 			return (0);

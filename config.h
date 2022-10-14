@@ -8,20 +8,20 @@
 # include "mlx.h"
 # include <math.h>
 # define DEF_W 1280
-# define DEF_H 720
+# define DEF_H 840
 # define DEL " \t\v\f\r\n"
 # define TEXTURE 64
 # define STEP 0.1
 # define THETA 0.03
 
 # define KEY_NONE -1
-# define KEY_ESC  65307
-# define KEY_W  119
-# define KEY_S  115
-# define KEY_D  100
-# define KEY_A  97
-# define KEY_LD  65361
-# define KEY_RD  65363
+# define KEY_ESC  53
+# define KEY_W  13
+# define KEY_S  1
+# define KEY_D  2
+# define KEY_A  0
+# define KEY_LD  123
+# define KEY_RD  124
 
 typedef enum e_dir
 {

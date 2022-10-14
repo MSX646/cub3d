@@ -3,9 +3,9 @@ NAME= cub3d
 AR= ar rc
 RM= rm -rf
 
-CC= gcc
-CFLAGS= -Wall -Werror -Wextra -Ilibft -g3 -c 
-MFLAGS=  -Lmlx-linux -lmlx -L/usr/lib -Imlx-linux -lXext -lX11 -lm -lz
+CC= clang
+CFLAGS= -Wall -Werror -Wextra -Ilibft -g3 -c
+MFLAGS=  -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz -framework OpenGL -framework AppKit
 INC=	config.h
 
 ODIR= obj
@@ -20,7 +20,7 @@ SFIX= $(addprefix $(SDIR)/, $(SRCS))
 OFIX= $(addprefix $(ODIR)/, $(OBJS)) 
 
 $(ODIR)/%.o: %.c $(INC)
-	$(CC) $(CFLAGS)  -I/usr/include -Imlx-linux $< -o $@
+	$(CC) $(CFLAGS) -Imlx $< -o $@
 
 $(NAME): $(ODIR) $(OFIX)
 	$(MAKE) -C ./libft
