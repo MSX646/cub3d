@@ -92,13 +92,13 @@ void	graph_info(int fd, t_graphics *graphics, void *mlx)
 	i = -1;
 	while (++i < 6)
 	{
-		line = trim_line(new_line(fd));
+		line = trim_line(new_line(fd), 0);
 		if (!line && i == 0)
 			throw_error("Error\nFile is empty\n");
 		while (*line == '\0')
 		{
 			free(line);
-			line = trim_line(new_line(fd));
+			line = trim_line(new_line(fd), 0);
 		}
 		parse_texture(graphics, line, mlx, check);
 	}

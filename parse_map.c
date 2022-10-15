@@ -34,13 +34,13 @@ void	map_info(t_map *info, int fd)
 {
 	char	*line;
 
-	line = trim_line(new_line(fd));
+	line = trim_line(new_line(fd), 1);
 	if (!line)
 		throw_error("Error\nEmpty file");
 	while (*line == '\0')
 	{
 		free(line);
-		line = trim_line(new_line(fd));
+		line = trim_line(new_line(fd), 1);
 	}
 	while (line)
 	{
@@ -49,9 +49,12 @@ void	map_info(t_map *info, int fd)
 		info->h++;
 		if (info->w < ft_strlen(line))
 			info->w = ft_strlen(line);
-		line = trim_line(new_line(fd));
+		line = trim_line(new_line(fd), 1);
 	}
 	if (line)
 		free(line);
 	close(fd);
+	int i = -1;
+	while (info->map[++i])
+		printf("%s\n", info->map[i]);
 }

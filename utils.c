@@ -33,11 +33,14 @@ void	throw_error(char *str)
 	exit(1);
 }
 
-char	*trim_line(char *line)
+char	*trim_line(char *line, int back)
 {
 	char	*result;
 
-	result = ft_strtrim(line, DEL);
+	if (!back)
+		result = ft_strtrim(line, DEL);
+	else
+		result = strtrim_back(line, DEL);
 	free(line);
 	return (result);
 }

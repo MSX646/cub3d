@@ -79,9 +79,9 @@ int	to_rgb(char *str)
 	rgb = 0;
 	arr = ft_split(str, ',');
 	check_split(arr);
-	rgb += get_rgb(trim_line(arr[0])) << 16;
-	rgb += get_rgb(trim_line(arr[1])) << 8;
-	rgb += get_rgb(trim_line(arr[2]));
+	rgb += get_rgb(trim_line(arr[0], 0)) << 16;
+	rgb += get_rgb(trim_line(arr[1], 0)) << 8;
+	rgb += get_rgb(trim_line(arr[2], 0));
 	free(arr);
 	return (rgb);
 }

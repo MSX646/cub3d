@@ -19,21 +19,21 @@
 # include "get_next_line.h"
 # include "mlx.h"
 # include <math.h>
-# define DEF_W 1280
-# define DEF_H 840
+# define DEF_W 800
+# define DEF_H 640
 # define DEL " \t\v\f\r\n"
 # define TEXTURE 64
 # define STEP 0.1
 # define THETA 0.03
 
 # define KEY_NONE -1
-# define KEY_ESC  53
-# define KEY_W  13
-# define KEY_S  1
-# define KEY_D  2
-# define KEY_A  0
-# define KEY_LD  123
-# define KEY_RD  124
+# define KEY_ESC  53//65307
+# define KEY_W  13//119
+# define KEY_S  1//115
+# define KEY_D  2//100
+# define KEY_A  0//97
+# define KEY_LD  123//65361
+# define KEY_RD  125//65363
 
 typedef enum e_dir
 {
@@ -131,8 +131,9 @@ typedef struct s_game
 void	*make_img(void *mlx, char *xpm);
 void	throw_error(char *str);
 char	*new_line(int fd);
-char	*trim_line(char *line);
+char	*trim_line(char *line, int back);
 int	to_rgb(char *str);
+char	*strtrim_back(char const *s1, char const *set);
 
 /*DRAWINGS*/
 void	draw_wall(t_game *game, t_ray *ray, int x);
